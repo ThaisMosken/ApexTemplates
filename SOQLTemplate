@@ -1,0 +1,20 @@
+trigger DedupeLead on Lead (before insert) {
+
+//Find the Id of the Queue 'Data quality'
+List<Group> dataQualityGroup = [SELECT Id
+								                  FROM Group
+								                 WHERE DeveloperName = 'Data_Quality'];
+
+	for (Lead newLead : Trigger.new){
+
+		if (newLead.Email != null) {
+
+			//when lead is created, find all contacts that have the same emails as the lead
+			List<Contact> matchingContacts = [SELECT Id
+	                  											FROM Contact
+										                 	   WHERE FirstName LIKE :newLead.FirstName.left(1) + '%'
+                                           AND Email = :newLead.Email
+                                           AND Account.Name = :newLead.Company];
+		}        
+	}
+}
