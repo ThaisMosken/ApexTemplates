@@ -1,0 +1,6 @@
+trigger HelloWorld on Lead (before update) {
+    for (Lead newLead : Trigger.new){
+        newLead.FirstName = 'Hello';
+        newLead.LastName = 'World';
+    }
+}
