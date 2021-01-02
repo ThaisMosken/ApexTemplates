@@ -9,6 +9,5 @@ User userTest = new User(
     TimeZoneSidKey         = 'America/Los_Angeles',
     EmailEncodingKey       = 'UTF-8',
     LanguageLocaleKey      = 'en_US',
-    LocaleSidKey           = 'en_US',
-    Position_Start_Date__c = Date.today().addDays(-400)
+    LocaleSidKey           = 'en_US'
 );
