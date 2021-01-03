@@ -1,14 +1,5 @@
 @isTest
 private class ClassNameTest {
-    @isTest static void createLead() {
-        Lead leadTest = new Lead();
-
-        leadTest.FirstName = 'testFirstName';
-        leadTest.LastName  = 'testLastName';
-        leadTest.Company   = 'testCompany';
-        leadTest.Phone     = '(48)48484848';
-        leadTest.Website   = 'website.com.br';
-
-        insert leadTest;
-    }
+ @isTest static void createLead() {
+ }
 }
