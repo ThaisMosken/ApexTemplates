@@ -1,0 +1,23 @@
+@isTest
+private class ClassNameTest {
+
+ @TestVisible static List<User> createUsers(Integer amount) {
+  List<User> newUsers = new List<User>();
+  System.debug(newUsers.size() + ' users created');
+  return newUsers;
+ }
+
+ @isTest static void oppFromIC() {
+  List<User> newUsers = new List<User>();
+  newUsers = ClassNameTest.createUsers(2);
+  System.debug(newUsers.size() + ' user(s) created');
+  
+  User manager = newUsers.get(0);
+  User ic      = newUsers.get(1);
+  insert manager;
+  ic.ManagerId = manager.Id;
+  insert ic;
+
+  System.assertEquals(1, oppMember.size());
+ }
+}
